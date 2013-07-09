@@ -3,19 +3,11 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 var fs = require('fs');
-var infile_buf = new Buffer(255);
-var len = infile_buf.length;
 
-fs.readFile('index.html', function (err, infile_buf) {
-  if (err) throw err;
-  console.log(infile_buf);
-});
+var data = fs.readFile('index.html', "utf-8");
 
-len = infile_buf.length;
-infile_buf.toString('utf8', 0, len);
 app.get('/', function(request, response) {
-/*  response.send(infile_buf);*/
-  response.send('Reza Here to the World!!');
+  response.send(data);
 });
 
 var port = process.env.PORT || 5000;
