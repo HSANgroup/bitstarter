@@ -14,7 +14,8 @@ fs.readFile('index.html', function (err, infile_buf) {
 len = infile_buf.length;
 infile_buf.toString('utf8', 0, len);
 app.get('/', function(request, response) {
-  response.send(infile_buf);
+/*  response.send(infile_buf);*/
+  response.send('Reza Here to the World!!');
 });
 
 var port = process.env.PORT || 5000;
